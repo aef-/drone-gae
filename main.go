@@ -229,6 +229,9 @@ func configFromEnv(vargs *GAE, workspace *string) error {
 	}
 
 	templateVars := os.Getenv("PLUGIN_VARS")
+	fmt.Println("TEMPLATE VARS START")
+	fmt.Println(templateVars)
+	fmt.Println("TEMPLATE VARS END")
 	if templateVars != "" {
 		if err := json.Unmarshal([]byte(templateVars), &dummyVargs.TemplateVars); err != nil {
 			return fmt.Errorf("could not parse param vars into a map[string]interface{}")
